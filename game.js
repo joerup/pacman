@@ -1,4 +1,4 @@
-import {OBJLoader} from './loaders/OBJLoader.js';
+// import {OBJLoader} from './loaders/OBJLoader.js';
 
 class Ghost{
   constructor(r, c, dr, dc, tr, tc, str, stc){
@@ -27,7 +27,7 @@ class Ghost{
     this.floatDir = 1;
     this.maxy = 1;
     this.miny = 1;
-    this.loadModel();
+    // this.loadModel();
   }
 
   reset(){
@@ -111,50 +111,50 @@ class Ghost{
   }
 
   // the original code reverses all directions on a state change - so try this later
-  forcedReversal(){
-    this.dr *= -1;
-    this.dc *= -1;
-  }
+  // forcedReversal(){
+  //   this.dr *= -1;
+  //   this.dc *= -1;
+  // }
 
-  loadModel() {
-    const loader = new OBJLoader();
-    loader.load('head/head.obj', (obj) => {
-        this.manequin = obj;
-        this.manequin.position.set(this.r,-this.c,0);
-        this.manequin.scale.set(1, 1, 1);  
-        this.manequin.rotation.x = -Math.PI/2;
-        console.log("model loaded and added to scene")
-        this.float();
-    },
-    undefined,
-    (error) =>{
-        console.error("manequin hasn't loaded", error);
-    }
-    );
+  // loadModel() {
+  //   const loader = new OBJLoader();
+  //   loader.load('head/head.obj', (obj) => {
+  //       this.manequin = obj;
+  //       this.manequin.position.set(this.r,-this.c,0);
+  //       this.manequin.scale.set(1, 1, 1);  
+  //       this.manequin.rotation.x = -Math.PI/2;
+  //       console.log("model loaded and added to scene")
+  //       this.float();
+  //   },
+  //   undefined,
+  //   (error) =>{
+  //       console.error("manequin hasn't loaded", error);
+  //   }
+  //   );
 }
 
- // want head to float
- float(){
-  if(this.manequin == null) {
-      requestAnimationFrame(()=> this.float());
-      return;
-  }
-  this.manequin.position.y += 0.05*this.floatDir
+//  // want head to float
+//  float(){
+//   if(this.manequin == null) {
+//       requestAnimationFrame(()=> this.float());
+//       return;
+//   }
+//   this.manequin.position.y += 0.05*this.floatDir
 
 
-  if (this.manequin.position.y >= this.maxy)
-      this.floatDir =-1;
-      //move down greater than ... you've reached maxed height
- else if (this.manequin.position.y <= this.miny )
-      this.floatDir = 1;
- requestAnimationFrame(()=> this.float());
-}
+//   if (this.manequin.position.y >= this.maxy)
+//       this.floatDir =-1;
+//       //move down greater than ... you've reached maxed height
+//  else if (this.manequin.position.y <= this.miny )
+//       this.floatDir = 1;
+//  requestAnimationFrame(()=> this.float());
+// }
 
-getMesh(){
-  return this.manequin;
-}
+// getMesh(){
+//   return this.manequin;
+// }
 
-}
+// }
 
 
 class Player{
