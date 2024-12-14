@@ -196,7 +196,7 @@ const animate = () => {
         }
         ghost.walk(ghostSpeed);
         ghost.mesh.position.set(ghost.c_, 0, ghost.r_);
-        ghost.mesh.lookAt(ghost.mesh.position.x + ghost.dc, Math.PI/2, ghost.mesh.position.z + ghost.dr);
+        ghost.mesh.lookAt(ghost.mesh.position.x + ghost.dc, Math.PI, ghost.mesh.position.z + ghost.dr);
     });
 
     // Camera positioning
@@ -243,15 +243,26 @@ const animate = () => {
             console.log("Power pellet collected! Ghosts frightened.");
             game.ghosts.forEach((ghost) => (ghost.state = 2));
     
+            const setBlinking = setInterval(
+                function(){
+                    game.ghosts.forEach((ghost) => {
+                        setTimeout(function(){ghost.setColor("blue")}, 250);
+                        ghost.setColor("white");
+                    })
+                }, 500
+            )
+
             // Reset ghost states after 10 seconds
             setTimeout(() => {
                 game.ghosts.forEach((ghost) => {
                     if (ghost.state === 2) {
                         ghost.state = game.currentMode; // Restore original state
+                        clearInterval(setBlinking);
+                        setTimeout(function(){ghost.resetColor()}, 500);
                     }
                 });
                 console.log("Frightened mode ended. Ghosts reset to normal behavior.");
-            }, 10000); // Frightened mode lasts 10 seconds
+            }, 10000);
         }
     }
     
