@@ -2,4 +2,4 @@
 
 Play: https://joerup.github.io/pacman/
 
-Writeup: [writeup.md](writeup.md)
+Writeup: [writeup.pdf](writeup.pdf)
