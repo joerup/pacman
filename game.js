@@ -288,14 +288,14 @@ class Game{
  
       moveGhosts(speed){
         for (const ghost of this.ghosts){
-          const distance = Math.min(0.2, Math.max(-0.2, speed));
+          const distance = Math.min(0.1, Math.max(-0.1, speed));
 
           // move a little bit toward the next pos
           ghost.position.x = ghost.position.x + distance * (ghost.nextPos.x - ghost.r);
           ghost.position.y = ghost.position.y + distance * (ghost.nextPos.y - ghost.c);
 
           // when done moving to the correct next pos
-          if (Math.abs(ghost.position.x - ghost.nextPos.x) < distance && Math.abs(ghost.position.y - ghost.nextPos.y) < distance){
+          if (Math.abs(ghost.position.x - ghost.nextPos.x) < 2 * distance && Math.abs(ghost.position.y - ghost.nextPos.y) < 2 * distance){
 
             ghost.r = Math.round(ghost.position.x); 
             ghost.c = Math.round(ghost.position.y);
