@@ -585,17 +585,16 @@ const startAnimation = () => {
     if (G.isOver) {
       return;
     }
-    const pacmanSpeed = dt * 3;
-    const ghostSpeed = dt * 2.8;
+    const speed = dt * 2;
 
     // Handle player movement based on key state
-    if (keys.w || keys.ArrowUp) G.movePlayer(pacmanSpeed);
-    if (keys.s || keys.ArrowDown) G.movePlayer(-pacmanSpeed);
-    if (keys.a || keys.ArrowLeft) G.rotatePlayer(pacmanSpeed);
-    if (keys.d || keys.ArrowRight) G.rotatePlayer(-pacmanSpeed);
+    if (keys.w || keys.ArrowUp) G.movePlayer(speed);
+    if (keys.s || keys.ArrowDown) G.movePlayer(-speed);
+    if (keys.a || keys.ArrowLeft) G.rotatePlayer(speed);
+    if (keys.d || keys.ArrowRight) G.rotatePlayer(-speed);
 
     // Move the ghosts
-    G.moveGhosts(ghostSpeed);
+    G.moveGhosts(speed);
 
     // Update the ghost targets
     G.updateGhostTargets();
