@@ -288,7 +288,7 @@ class Game{
  
       moveGhosts(speed){
         for (const ghost of this.ghosts){
-          const distance = Math.min(0.2, speed);
+          const distance = Math.min(0.2, Math.max(-0.2, speed));
 
           // move a little bit toward the next pos
           ghost.position.x = ghost.position.x + distance * (ghost.nextPos.x - ghost.r);
