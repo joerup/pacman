@@ -55,7 +55,6 @@ export class Game{
         // Reset the ghost after 5 seconds
         // setTimeout(() => {
             // ghost.mesh.visible = true;
-        ghost.state = this.currentMode; // Restore its previous mode
         ghost.r = ghost.ro; // Reset to starting position
         ghost.c = ghost.co;
         ghost.r_ = ghost.ro;
