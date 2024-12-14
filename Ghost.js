@@ -205,8 +205,9 @@ export class Ghost {
 
     static loadMesh(ghost, scene) {
         const loader = new OBJLoader();
+        const basePath = window.location.pathname.startsWith('/pacman') ? '/pacman' : '';
         loader.load(
-            './models/head.obj',
+            `${basePath}/models/head.obj`,
             (obj) => {
                 const meshScaling = 0.05;
                 obj.scale.set(meshScaling, meshScaling, meshScaling);
