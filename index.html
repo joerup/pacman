@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanilla Three.js</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden; /* Prevent scrollbars */
+            background: radial-gradient(circle, #000428, #004e92); /* Dark gradient background */
+            height: 100vh; /* Ensure the canvas covers the full viewport */
+            font-family: "Silkscreen", sans-serif; /* Default font */
+        }
+
+        #ui-overlay {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            font-size: 16px;
+            z-index: 10; /* Ensure it appears above the canvas */
+        }
+
+        #ui-overlay h2 {
+            margin: 0;
+            padding: 0;
+        }
+
+        #ui-overlay p {
+            margin: 5px 0;
+            opacity: 0.8;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="ui-overlay">
+        <div id="score-container">
+            <h2 style="color: yellow; font-size: 100px; padding: 10px 20px;"><span id="score">0</span></h2>
+        </div>
+        <p id="mode-display" style="font-size: 24px; font-weight: bold; opacity: 0.8; margin: 0 0 10px;">Mode: 0</p>
+        <div id="death-message" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; display: none; justify-content: center; align-items: center; background-color: rgba(0, 0, 0, 0.8); z-index: 100;">
+            <div style="text-align: center; color: white;">
+                <h1>Game Over</h1>
+                <p style="font-size: 100px; font-weight: bold; color: yellow; opacity: 0.8; padding-bottom: 50px;"><span id="final-score">0</span></p>
+                <button id="respawn-button" style="padding: 10px 20px; font-size: 24px; border: none; background-color: #f00; color: white; cursor: pointer; border-radius: 5px; margin-top: 10px; font-family: 'Silkscreen', sans-serif;">
+                    <p>Play Again</p>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- The canvas is auto-injected by Three.js -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.155.0/build/three.min.js"></script>
+    <script src="./game.js"></script>
+</body>
+</html>
