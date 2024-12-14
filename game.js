@@ -585,7 +585,7 @@ const startAnimation = () => {
     if (G.isOver) {
       return;
     }
-    const speed = dt * 2;
+    const speed = dt * 2.5;
 
     // Handle player movement based on key state
     if (keys.w || keys.ArrowUp) G.movePlayer(speed);
